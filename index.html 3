@@ -1,0 +1,66 @@
+// --- GESTÃO DE DADOS (DATA LAYER) ---
+const membros = [
+    { nome: "Axl Rose", papel: "Vocais" },
+    { nome: "Slash", papel: "Guitarra Solo" },
+    { nome: "Duff McKagan", papel: "Baixo" }
+];
+
+const albuns = [
+    { titulo: "Appetite for Destruction", ano: "1987" },
+    { titulo: "Use Your Illusion I & II", ano: "1991" },
+    { titulo: "Chinese Democracy", ano: "2008" }
+];
+
+// --- RENDERIZAÇÃO DINÂMICA ---
+function renderContent() {
+    const membersGrid = document.getElementById('members-grid');
+    const albumsCarousel = document.getElementById('albums-carousel');
+
+    // Renderiza Membros
+    membersGrid.innerHTML = membros.map(m => `
+        <article class="card">
+            <h3>${m.nome}</h3>
+            <p>${m.papel}</p>
+        </article>
+    `).join('');
+
+    // Renderiza Álbuns
+    albumsCarousel.innerHTML = albuns.map(a => `
+        <div class="card" style="min-width: 280px;">
+            <h3>${a.titulo}</h3>
+            <p>Ano: ${a.ano}</p>
+        </div>
+    `).join('');
+}
+
+// --- ACESSIBILIDADE: TAMANHO DA FONTE ---
+let currentFontSize = 16;
+function changeFontSize(action) {
+    if (action === 'increase') currentFontSize += 2;
+    else currentFontSize -= 2;
+    document.documentElement.style.setProperty('--font-base', currentFontSize + 'px');
+}
+
+// --- ACESSIBILIDADE: ALTO CONTRASTE ---
+function toggleContrast() {
+    document.body.classList.toggle('high-contrast');
+}
+
+// --- COMPONENTE: ACORDEÃO ---
+document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        button.classList.toggle('active');
+    });
+});
+
+// --- COMPONENTE: CARROSSEL (Lógica de Deslocamento) ---
+let carouselPos = 0;
+document.getElementById('nextBtn').addEventListener('click', () => {
+    carouselPos -= 300;
+    document.getElementById('albums-carousel').style.transform = `translateX(${carouselPos}px)`;
+});
+document.getElementById('prevBtn').addEventListener('click', () => {
+    carouselPos += 300;
+    document.getElementById('albums-
