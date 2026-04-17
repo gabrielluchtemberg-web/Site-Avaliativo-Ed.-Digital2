@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guns N' Roses | Site Oficial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="accessibility-bar" role="toolbar" aria-label="Ferramentas de acessibilidade">
+        <button onclick="changeFontSize('increase')" aria-label="Aumentar fonte">A+</button>
+        <button onclick="changeFontSize('decrease')" aria-label="Diminuir fonte">A-</button>
+        <button onclick="toggleContrast()" aria-label="Alternar Alto Contraste">Contraste</button>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">Guns N' Roses</div>
+            <ul class="nav-links">
+                <li><a href="#biografia">História</a></li>
+                <li><a href="#membros">Membros</a></li>
+                <li><a href="#discografia">Discografia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="reveal">
+            <div class="container">
+                <h1>Welcome to the Jungle</h1>
+                <p>A banda mais perigosa do mundo.</p>
+            </div>
+        </section>
+
+        <section id="biografia" class="container reveal">
+            <h2>Sobre a Banda</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        A Fundação (1985)
+                    </button>
+                    <div class="accordion-content">
+                        <p>Formada em Los Angeles, a banda surgiu da fusão entre Hollywood Rose e L.A. Guns.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        O Legado
+                    </button>
+                    <div class="accordion-content">
+                        <p>Com mais de 100 milhões de álbuns vendidos, o GNR definiu o Hard Rock moderno.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="membros" class="container reveal">
+            <h2>Membros Atuais</h2>
+            <div id="members-grid" class="grid-container">
+                </div>
+        </section>
+
+        <section id="discografia" class="container reveal">
+            <h2>Discografia de Sucesso</h2>
+            <div class="carousel-wrapper">
+                <div id="albums-carousel" class="carousel">
+                    </div>
+                <div class="carousel-controls">
+                    <button id="prevBtn" aria-label="Álbum anterior">Anterior</button>
+                    <button id="nextBtn" aria-label="Próximo álbum">Próximo</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Guns N' Roses Fan Page. Desenvolvido com foco em acessibilidade.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
